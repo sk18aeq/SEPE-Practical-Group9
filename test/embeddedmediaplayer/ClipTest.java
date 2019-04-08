@@ -85,7 +85,20 @@ public class ClipTest {
     @Test
     public void testEqualsOnEqualClips() 
     {
+       //check two clips are equal as same title, start time and end time 
+       System.out.println("Equal on equal clips");
+       String ClipOneTitle = "Title"; //Create title
+       Clip ClipOne = new Clip(ClipOneTitle,10,60); // Clip one, start time 10 and end time is 60
        
+       Clip ClipTwo = new Clip();// Second clip
+       String ClipTwoTitle = "Title"; //Create second sub video clip 
+       ClipTwo.setTitle(ClipTwoTitle);   // Set Ttile  
+       ClipTwo.setStart(10);//Set start time from 10 sec's
+       ClipTwo.setEnd(60);// set end time aty 60 sec
+       
+       boolean DuplicateClip = ClipOne.equals(ClipTwo); 
+       assertEquals(true,DuplicateClip); // its a duplicate video
+       System.out.println("Same clip is found with same title, start time and endtime");          
     }
     
     @Test
