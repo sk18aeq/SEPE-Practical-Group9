@@ -146,7 +146,26 @@ public class ClipTest {
     @Test
     public void testSetStartToValidPositiveNumber() 
     { 
-       
+       System.out.println(" set valid positive nuber");
+       boolean PositiveFlag = false;
+       Clip clip = new Clip();
+       String InitialTitle = "ClipOne"; 
+       clip.setTitle(InitialTitle);   // Set Ttile  
+       int ClipOneStartTime = 5; // start from 5th second
+       int ClipOneEndtime = 40;// end at 40th second
+       // Create a clipone 
+       clip.setStart(ClipOneStartTime);
+       clip.setEnd(ClipOneEndtime);
+       // set Positive Number as start time
+       int PositiveNumber = 8;
+       clip.setStart(PositiveNumber); // set Positive Number as start time
+       int ModifiedStartTime = clip.getStart();
+       // check start time is valid postive number
+       if (ModifiedStartTime > 0) {
+          PositiveFlag = true; 
+       }      
+       assertEquals(true,PositiveFlag);
+       System.out.println("start time is valid positive number ");          
     }
     
     
