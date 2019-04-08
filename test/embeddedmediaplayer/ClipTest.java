@@ -91,7 +91,7 @@ public class ClipTest {
        Clip ClipOne = new Clip(ClipOneTitle,10,60); // Clip one, start time 10 and end time is 60
        
        Clip ClipTwo = new Clip();// Second clip
-       String ClipTwoTitle = "Title"; //Create second sub video clip 
+       String ClipTwoTitle = "Title"; //Create second clip with same title
        ClipTwo.setTitle(ClipTwoTitle);   // Set Ttile  
        ClipTwo.setStart(10);//Set start time from 10 sec's
        ClipTwo.setEnd(60);// set end time aty 60 sec
@@ -104,11 +104,28 @@ public class ClipTest {
     @Test
     public void testEqualsOnNonEqualClips() 
     {
+       //check two clips are equal as same title, start time and end time 
+       System.out.println("Equal on non equal clips");
+       String ClipOneTitle = "Title"; //Create title
+       // create first clip
+       Clip ClipOne = new Clip(ClipOneTitle,10,60); // Clip one, start time 10 and end time is 60
+       // create second clip
+       Clip ClipTwo = new Clip();// Second clip
+       String ClipTwoTitle = "Title2"; //Create second sub video clip 
+       ClipTwo.setTitle(ClipTwoTitle);   // Set Ttile  
+       ClipTwo.setStart(10);//Set start time from 10 sec's
+       ClipTwo.setEnd(60);// set end time aty 60 sec
+       // compare two clips
+       boolean ClipComparison = ClipOne.equals(ClipTwo); 
+       assertNotEquals(true,ClipComparison); // it's a new clip 
+       System.out.println("non equal clip found with different title");        
     }
     
     @Test
     public void testSetEndToNegativeNumberKeepsPreviousValue() 
     {
+ 
+        
     }
     
     @Test
