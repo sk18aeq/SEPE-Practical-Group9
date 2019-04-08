@@ -63,7 +63,23 @@ public class ClipTest {
     @Test
     public void testSetEndBeforeStartKeepsPreviousValue()
     {
+       System.out.println(" set end time to before start time");
+       Clip clip = new Clip();
+       String InitialTitle = "ClipOne"; 
+       clip.setTitle(InitialTitle);   // Set Ttile  
+       int ClipOneStartTime = 5; // start from 5th second
+       int ClipOneEndtime = 40;// end at 40th second
+       // Create a clipone 
+       clip.setStart(ClipOneStartTime);
+       clip.setEnd(ClipOneEndtime);
+       // get current status of the clip
+       int CurrentEndTime = clip.getEnd(); //Get end time of the clipone
+       clip.setStart(CurrentEndTime); // set end time as start time to the clipone
+       int ModifiedStartTime = clip.getStart();
        
+       int ExpectedStartTime = ClipOneStartTime; // expected startm time is initial start time
+       assertEquals(ExpectedStartTime,ModifiedStartTime);
+       System.out.println("end time is not set, as endtime cannot be start time ");        
     }
 
     @Test
